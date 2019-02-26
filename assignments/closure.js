@@ -4,16 +4,15 @@
 function parent () {
     console.log('I contain a closure')
     const passItOn = 'I do not contain a closure'
-    debugger;
 
     function child () {
         console.log(passItOn)
-        debugger;
     }
     child();
 }
 
 parent();
+
 /* STRETCH PROBLEMS, Do not attempt until you have completed all previous tasks for today's project files */
 
 
