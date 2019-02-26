@@ -31,7 +31,9 @@ function getLength(arr, cb) {
 }
 
 getLength(items, function(array) {
-    console.log(`The length is: ${array.length}`);
+    console.log(array.length)
+    return array.length;
+
 })
 
 function last(arr, cb) {
