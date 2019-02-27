@@ -27,13 +27,11 @@ const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 
 function getLength(arr, cb) {
   // getLength passes the length of the array into the callback.
-  return cb(arr)
+  return cb(arr.length)
 }
 
 getLength(items, function(array) {
-    console.log(array.length)
-    return array.length;
-
+    console.log(array)
 })
 
 function last(arr, cb) {
@@ -71,10 +69,13 @@ function contains(item, list, cb) {
   // Pass true to the callback if it is, otherwise pass false.
 
   for (let i = 0; i < list.length; i++) {
+      //runs through every index in list checking for item
       if (list[i] === item) {
+          //if item is in list assign the value of true to the callback
           return cb(true);
       }
     }
+    //else return false
     return cb(false);
 }
 

@@ -90,7 +90,41 @@ console.log(ticketPriceTotal);
 
 // Problem 1
 //The planners need to send an info packet to each person through email. They will need an array containing the names and email addresses of all runners
+const runnerInfo = [];
+runners.forEach(function(currentValue) {
+    runnerInfo.push(`${currentValue.first_name} ${currentValue.last_name}: Email Address: ${currentValue.email}`)
+})
+console.log(runnerInfo);
 
 // Problem 2
+//The planners are running low on money and want to ask all runners who contributed under the average donation amount to increase their donation. They will need an array with all of the company names and their donation amounts.
+
+//Calculates average donation amount
+const averageDonation = ticketPriceTotal / runners.length;
+
+//creates an array of all people who donated less than averageDonation
+const underAverage = runners.filter(function(currentValue) {
+    return currentValue.donation < averageDonation;
+})
+
+console.log(underAverage)
 
 // Problem 3
+//The planners need to spilt the groups into two separate waves of 25 runners. Split them by ID
+const firstWave = [];
+const secondWave = [];
+
+const separate = runners.forEach(function(currentRunner) {
+    //checks if runners id is under or equal to 25
+    if(currentRunner.id <= 25) {
+        //push to first wave if true
+        firstWave.push(currentRunner)
+    }
+    //otherwise push to second wave
+    else {
+        secondWave.push(currentRunner)
+    }
+})
+
+console.log(firstWave)
+console.log(secondWave)
