@@ -2,13 +2,13 @@
 
 const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 
-/* 
+/*
 
-  //Given this problem: 
-  
-  function firstItem(arr, cb) {
-    // firstItem passes the first item of the given array to the callback function.
-  }
+  //Given this problem:
+
+  // function firstItem(arr, cb) {
+  //   // firstItem passes the first item of the given array to the callback function.
+  // }
 
   // Potential Solution:
 
@@ -17,7 +17,7 @@ const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
     return cb(arr[0]);
   }
 
-  // Function invocation 
+  // Function invocation
   firstItem(items, function(first) {
     console.log(first)
   });
@@ -27,24 +27,64 @@ const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 
 function getLength(arr, cb) {
   // getLength passes the length of the array into the callback.
+  return cb(arr.length)
 }
+
+getLength(items, function(array) {
+    console.log(array)
+})
 
 function last(arr, cb) {
   // last passes the last item of the array into the callback.
+  return cb(arr[arr.length-1])
 }
+
+last(items, function(lastItem) {
+    console.log(`The last item is: ${lastItem}`);
+})
 
 function sumNums(x, y, cb) {
   // sumNums adds two numbers (x, y) and passes the result to the callback.
+  return cb(x + y);
 }
+
+sumNums(3, 5, function(sum) {
+    console.log(`The added numbers are equal to ${sum}`);
+})
 
 function multiplyNums(x, y, cb) {
   // multiplyNums multiplies two numbers and passes the result to the callback.
+  return cb(x * y);
 }
+
+multiplyNums(4, 4, function(sum) {
+    console.log(`The multiplied numbers equal ${sum}`);
+})
+
+
+let item = 'Notebook'
 
 function contains(item, list, cb) {
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
+
+  for (let i = 0; i < list.length; i++) {
+      //runs through every index in list checking for item
+      if (list[i] === item) {
+          //if item is in list assign the value of true to the callback
+          return cb(true);
+      }
+    }
+    //else return false
+    return cb(false);
 }
+
+
+contains(item, items, function (testCall) {
+    console.log(testCall)
+})
+
+
 
 /* STRETCH PROBLEM */
 
